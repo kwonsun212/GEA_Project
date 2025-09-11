@@ -1,3 +1,5 @@
-# GEA_Project
+# GEA\_Project
+
 게임엔진응용 프로젝트
 2025137067 권선
+
