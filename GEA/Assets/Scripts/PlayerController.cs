@@ -1,9 +1,12 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public CinemacineSwitcher1 cinemacineSwitcher; 
 
     public float speed = 5f;
 
@@ -11,33 +14,79 @@ public class PlayerController : MonoBehaviour
 
     public float gravity = -9.81f;
 
+    public CinemachineVirtualCamera virtualCam;
+
+    public float rotationSpeed = 10f;
+
+    private CinemachinePOV pov;
+
     private CharacterController controller;
 
     private Vector3 velocity;
 
     public bool isGrounded;
 
+    public bool move = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        pov = virtualCam.GetCinemachineComponent<CinemachinePOV>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = controller.isGrounded;
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = new Vector3(x, 0, z);
-        controller.Move(move * speed * Time.deltaTime);
-        if(isGrounded && Input.GetKeyDown(KeyCode.Space))
+        
+        if(cinemacineSwitcher.usingFreeLook == false)
         {
-            velocity.y = jumpPower;
+            isGrounded = controller.isGrounded;
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = -2f; //지면에 붙이기
+            }
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 camForward = virtualCam.transform.forward;
+            camForward.y = 0;
+            camForward.Normalize();
+
+            Vector3 camRight = virtualCam.transform.right;
+            camRight.y = 0;
+            camRight.Normalize();
+
+            Vector3 move = (camForward * z + camRight * x).normalized;
+            controller.Move(move * speed * Time.deltaTime);
+
+            float cameraYaw = pov.m_HorizontalAxis.Value;
+            Quaternion targetRot = Quaternion.Euler(0f, cameraYaw, 0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+            {
+                velocity.y = jumpPower;
+            }
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                speed = 100f;
+                virtualCam.m_Lens.FieldOfView = 100;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                speed = 5f;
+                virtualCam.m_Lens.FieldOfView = 60;
+            }
         }
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime); 
+        if (cinemacineSwitcher.usingFreeLook == true)
+        {
+            return;
+        }
     }
 }
