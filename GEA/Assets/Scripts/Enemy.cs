@@ -132,7 +132,6 @@ public class Enemy : MonoBehaviour
     {
         Vector3 dir = (transform.position - player.position).normalized;
         transform.position += dir * RunSpeed * Time.deltaTime;
-        
         transform.LookAt(2 * transform.position - player.position);
 
         RunCount++;
