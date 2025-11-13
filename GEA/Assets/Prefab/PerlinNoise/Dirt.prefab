@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5764630183869108823}
   - component: {fileID: 1209720977563564212}
   - component: {fileID: 682282133047183727}
-  m_Layer: 0
-  m_Name: Stone
+  m_Layer: 3
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca6347321b374a94585ebb4fbbd29a08, type: 2}
+  - {fileID: 2100000, guid: 99fd83d3ba26b8d47a74b9518f53e557, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

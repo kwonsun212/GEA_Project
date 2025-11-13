@@ -60,6 +60,12 @@ public class NoiseVoxelMap : MonoBehaviour
     {
         var go = Instantiate(WaterPrefab, new Vector3(x, y, z), Quaternion.identity, transform);
         go.name = $"W_{x}_{y}_{z}";
+
+        var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
+        b.type = BlockType.Water;
+        b.maxHp = 3;
+        b.dropCount = 1;
+        b.mineable = true;
     }
 
     private void PlaceDirt(int x, int y, int z)
@@ -70,11 +76,23 @@ public class NoiseVoxelMap : MonoBehaviour
         {
             var go = Instantiate(StonePrefab, new Vector3(x, y, z), Quaternion.identity, transform);
         go.name = $"S_{x}_{y}_{z}";
+
+            var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
+            b.type = BlockType.Stone;
+            b.maxHp = 3;
+            b.dropCount = 1;
+            b.mineable = true;
         }
         else
         {
             var go = Instantiate(DirtPrefab, new Vector3(x, y, z), Quaternion.identity, transform);
         go.name = $"D_{x}_{y}_{z}";
+
+            var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
+            b.type = BlockType.Dirt;
+            b.maxHp = 3;
+            b.dropCount = 1;
+            b.mineable = true;
         }
 
     }
@@ -82,6 +100,12 @@ public class NoiseVoxelMap : MonoBehaviour
     {
         var go = Instantiate(GrassPrefab, new Vector3(x, y, z), Quaternion.identity, transform);
         go.name = $"G_{x}_{y}_{z}";
+
+        var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
+        b.type = BlockType.Grass;
+        b.maxHp = 3;
+        b.dropCount = 1;
+        b.mineable = true;
     }
     
 
