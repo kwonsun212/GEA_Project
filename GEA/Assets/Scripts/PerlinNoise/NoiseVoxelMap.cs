@@ -62,7 +62,7 @@ public class NoiseVoxelMap : MonoBehaviour
         go.name = $"W_{x}_{y}_{z}";
 
         var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
-        b.type = BlockType.Water;
+        b.type = ItemType.Water;
         b.maxHp = 3;
         b.dropCount = 1;
         b.mineable = true;
@@ -82,7 +82,7 @@ public class NoiseVoxelMap : MonoBehaviour
         go.name = $"D_{x}_{y}_{z}";
 
             var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
-            b.type = BlockType.Dirt;
+            b.type = ItemType.Dirt;
             b.maxHp = 3;
             b.dropCount = 1;
             b.mineable = true;
@@ -96,7 +96,7 @@ public class NoiseVoxelMap : MonoBehaviour
         go.name = $"S_{x}_{y}_{z}";
 
         var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
-        b.type = BlockType.Stone;
+        b.type = ItemType.Stone;
         b.maxHp = 3;
         b.dropCount = 1;
         b.mineable = true;
@@ -107,26 +107,26 @@ public class NoiseVoxelMap : MonoBehaviour
         go.name = $"G_{x}_{y}_{z}";
 
         var b = go.GetComponent<Block>() ?? go.AddComponent<Block>();
-        b.type = BlockType.Grass;
+        b.type = ItemType.Grass;
         b.maxHp = 3;
         b.dropCount = 1;
         b.mineable = true;
     }
     
-    public void PlaceTile(Vector3Int pos, BlockType type)
+    public void PlaceTile(Vector3Int pos, ItemType type)
     {
         switch(type)
         {
-            case BlockType.Dirt:
+            case ItemType.Dirt:
                 PlaceDirt(pos.x, pos.y, pos.z);
                 break;
-            case BlockType.Grass:
+            case ItemType.Grass:
                 PlaceGrass(pos.x, pos.y, pos.z);
                 break;
-            case BlockType.Water:
+            case ItemType.Water:
                 PlaceWater(pos.x, pos.y, pos.z);
                 break;
-            case BlockType.Stone:
+            case ItemType.Stone:
                 PlaceStone(pos.x, pos.y, pos.z);
                 break;
         }

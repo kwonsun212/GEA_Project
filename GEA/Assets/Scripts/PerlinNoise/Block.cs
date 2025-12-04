@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum BlockType { Dirt, Grass, Water, Stone}
+public enum ItemType { Dirt, Grass, Water, Stone, Axe, weed, SnoopDogg}
 public class Block : MonoBehaviour
 {
     [Header("Block Stat")]
 
-    public BlockType type = BlockType.Dirt;
+    public ItemType type = ItemType.Dirt;
     public int maxHp = 3;
     [HideInInspector] public int hp;
 

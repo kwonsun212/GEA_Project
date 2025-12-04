@@ -64,7 +64,17 @@ public class PlayerHarvester : MonoBehaviour
             
             if(Input.GetMouseButtonDown(0))
             {
+                Ray ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+                if(Physics.Raycast(ray,out var hit, rayDistance,hitMask,QueryTriggerInteraction.Ignore))
+                {
+                    Vector3Int placePos = AdjacentCellOnHitFace(hit);
 
+                    ItemType selected = invenUI.GetInventorySlot();
+                    if(inventory.Consume(selected, 1))
+                    {
+                        FindAnyObjectByType<NoiseVoxelMap>().PlaceTile(placePos, selected);
+                    }
+                }
             }
         }       
     }

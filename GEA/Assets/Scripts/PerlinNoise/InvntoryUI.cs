@@ -11,6 +11,10 @@ public class InvntoryUI : MonoBehaviour
     public Sprite Water;
     public Sprite Stone;
     public Sprite Grass;
+    public Sprite axeSprite;
+    public Sprite weedSprite;
+    public Sprite SnoopDoggSprite;
+
 
     public List<Transform> Slot;
     public GameObject SlotItem;
@@ -18,11 +22,11 @@ public class InvntoryUI : MonoBehaviour
 
     public int selectedIndex = -1;
 
-    private void UpdateInventory()
+    private void Update()
     {
         for(int i = 0; i < Mathf.Min(9, Slot.Count); i++)
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1 + 1))
+            if(Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
                 SetSelectedIndex(i);
             }
@@ -43,7 +47,7 @@ public class InvntoryUI : MonoBehaviour
             }
             else
             {
-                SetSelectedIndex(idx);
+                SetSelection(idx);
                 selectedIndex = idx;
             }
         }
@@ -61,7 +65,7 @@ public class InvntoryUI : MonoBehaviour
     {
         Slot[_idx].GetComponent<Image>().color = Color.yellow;
     }
-    public BlockType GetInventorySlot()
+    public ItemType GetInventorySlot()
     {
         return items[selectedIndex].GetComponent<SlotitemPrefab>().blockType;
     }
@@ -88,22 +92,34 @@ public class InvntoryUI : MonoBehaviour
 
             switch(item.Key)
             {
-                case BlockType.Dirt:
+                case ItemType.Dirt:
                     // Dirt 아이템을 슬롯에 생성
                     // Instantiate 활용
                     sItem.itemSeetting(Dirt, "x" + item.Value.ToString(), item.Key);
                     break;
 
-                case BlockType.Grass:
+                case ItemType.Grass:
                     sItem.itemSeetting(Grass, "x" + item.Value.ToString(), item.Key);
                     break;
 
-                case BlockType.Water:
+                case ItemType.Water:
                     sItem.itemSeetting(Water, "x" + item.Value.ToString(), item.Key);
                     break;
 
-                case BlockType.Stone:
+                case ItemType.Stone:
                     sItem.itemSeetting(Stone, "x" + item.Value.ToString(), item.Key);
+                    break;
+
+                case ItemType.Axe:
+                    sItem.itemSeetting(axeSprite, "x" + item.Value.ToString(), item.Key);
+                    break;
+
+                case ItemType.weed:
+                    sItem.itemSeetting(weedSprite, "x" + item.Value.ToString(), item.Key);
+                    break;
+
+                case ItemType.SnoopDogg:
+                    sItem.itemSeetting(SnoopDoggSprite, "x" + item.Value.ToString(), item.Key);
                     break;
             }
             idx++;
