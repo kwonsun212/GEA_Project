@@ -25,6 +25,33 @@ public class PlayerHarvester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        ItemType select = invenUI.GetInventorySlot();
+
+        int dmg = toolDamage;
+        if (select == ItemType.Axe)
+            dmg = toolDamage * 2;
+
+        if(select < 0)
+        {
+            if(Input.GetMouseButton(0) && Time.time >= _nextHitTime)
+            {
+                _nextHitTime = Time.time + hitCooldown;
+
+                Ray ray = _cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+                if(Physics.Raycast(ray, out var hit, rayDistance, hitMask))
+                {
+                    var block = hit.collider.GetComponent<Block>();
+
+                    if (block != null)
+                    {
+                        block.Hit(dmg, inventory);
+                    }
+                }
+            }
+        }
+
         if(invenUI.selectedIndex < 0)
         {
             selectedBlock.transform.localScale = Vector3.zero;
