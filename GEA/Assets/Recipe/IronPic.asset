@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 
   input:
-  - type: 4
+  - type: 5
     count: 1
-  - type: 8
+  - type: 9
     count: 1
   outputs:
-  - type: 9
+  - type: 10
     count: 1
