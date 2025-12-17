@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5764630183869108823}
   - component: {fileID: 1209720977563564212}
   - component: {fileID: 682282133047183727}
-  - component: {fileID: 369865668592695736}
+  - component: {fileID: -6266032438191677510}
   m_Layer: 3
-  m_Name: Stone
+  m_Name: Iron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca6347321b374a94585ebb4fbbd29a08, type: 2}
+  - {fileID: 2100000, guid: 7e1508a6d4e59ec4598671196db58bb2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &369865668592695736
+--- !u!114 &-6266032438191677510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d161b7653287be489565416c4b1a640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
-  maxHp: 3
+  type: 4
+  maxHp: 4
   hp: 0
   dropCount: 1
   mineable: 1
-  requiredTier: 0
+  requiredTier: 1

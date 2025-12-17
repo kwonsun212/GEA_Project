@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4826127630690223911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4682400449058481386}
+  - component: {fileID: 7708847999694975534}
+  m_Layer: 0
+  m_Name: NoiseVoxMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4682400449058481386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826127630690223911}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7708847999694975534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826127630690223911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7246ced601ab1c44a4a8a0fe015f863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaterPrefab: {fileID: 6036616870433625191, guid: 24dc45781c656424487736fc8ee4ba7d,
+    type: 3}
+  DirtPrefab: {fileID: 6036616870433625191, guid: 59e8a842226891344bb159799a3a0db3,
+    type: 3}
+  GrassPrefab: {fileID: 6036616870433625191, guid: dee87b5b0d90de141b598e99d5bc2231,
+    type: 3}
+  StonePrefab: {fileID: 6036616870433625191, guid: ac87ceea6c9dec5489fd3d535445b1af,
+    type: 3}
+  IronOrePrefab: {fileID: 6036616870433625191, guid: 6565532d5c6b2f3488cd45f671dd139f,
+    type: 3}
+  GoldOrePrefab: {fileID: 6036616870433625191, guid: 84303f0c54b3dec489f924da007861be,
+    type: 3}
+  DiamondOrePrefab: {fileID: 6036616870433625191, guid: e013fe0e2793db24ab0156c829990412,
+    type: 3}
+  maxHeight: 16
+  noiseScale: 20

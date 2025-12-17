@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed96a84df4c617e48bef24464b089235, type: 3}
-  m_Name: SnoopDogg
+  m_Name: WoodPic
   m_EditorClassIdentifier: 
   displayName: 
   input:
-  - type: 5
+  - type: 1
     count: 2
   outputs:
-  - type: 6
+  - type: 7
     count: 1

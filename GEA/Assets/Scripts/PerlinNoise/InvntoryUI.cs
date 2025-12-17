@@ -11,9 +11,20 @@ public class InvntoryUI : MonoBehaviour
     public Sprite Water;
     public Sprite Stone;
     public Sprite Grass;
-    public Sprite axeSprite;
     public Sprite weedSprite;
     public Sprite SnoopDoggSprite;
+
+    [Header("Ores")]
+    public Sprite IronOre;
+    public Sprite GoldOre;
+    public Sprite DiamondOre;
+
+    [Header("Pickaxes")]
+    public Sprite WoodPickaxe;
+    public Sprite StonePickaxe;
+    public Sprite IronPickaxe;
+    public Sprite GoldPickaxe;
+    public Sprite DiamondPickaxe;
 
 
     public List<Transform> Slot;
@@ -84,13 +95,20 @@ public class InvntoryUI : MonoBehaviour
         int idx = 0;
         foreach(var item in myInven.items)
         {
+            if (idx >= Slot.Count)
+            {
+                Debug.LogWarning("인벤토리 슬롯이 부족합니다!");
+                break;
+            }
+
             var go = Instantiate(SlotItem, Slot[idx].transform);
             go.transform.localPosition = Vector3.zero;
+
             SlotitemPrefab sItem = go.GetComponent<SlotitemPrefab>();
             items.Add(go);
 
 
-            switch(item.Key)
+            switch (item.Key)
             {
                 case ItemType.Dirt:
                     // Dirt 아이템을 슬롯에 생성
@@ -109,17 +127,44 @@ public class InvntoryUI : MonoBehaviour
                 case ItemType.Stone:
                     sItem.itemSeetting(Stone, "x" + item.Value.ToString(), item.Key);
                     break;
+                case ItemType.IronOre:
+                    sItem.itemSeetting(IronOre, "x" + item.Value, item.Key);
+                    break;
 
-                case ItemType.Axe:
-                    sItem.itemSeetting(axeSprite, "x" + item.Value.ToString(), item.Key);
+                case ItemType.GoldOre:
+                    sItem.itemSeetting(GoldOre, "x" + item.Value, item.Key);
+                    break;
+
+                case ItemType.DiamondOre:
+                    sItem.itemSeetting(DiamondOre, "x" + item.Value, item.Key);
+                    break;
+
+                case ItemType.WoodPickaxe:
+                    sItem.itemSeetting(WoodPickaxe, "x", item.Key);
+                    break;
+
+                case ItemType.StonePickaxe:
+                    sItem.itemSeetting(StonePickaxe, "x", item.Key);
+                    break;
+
+                case ItemType.IronPickaxe:
+                    sItem.itemSeetting(IronPickaxe, "x", item.Key);
+                    break;
+
+                case ItemType.GoldPickaxe:
+                    sItem.itemSeetting(GoldPickaxe, "x", item.Key);
+                    break;
+
+                case ItemType.DiamondPickaxe:
+                    sItem.itemSeetting(DiamondPickaxe, "x", item.Key);
                     break;
 
                 case ItemType.weed:
-                    sItem.itemSeetting(weedSprite, "x" + item.Value.ToString(), item.Key);
+                    sItem.itemSeetting(weedSprite, "x" + item.Value, item.Key);
                     break;
 
                 case ItemType.SnoopDogg:
-                    sItem.itemSeetting(SnoopDoggSprite, "x" + item.Value.ToString(), item.Key);
+                    sItem.itemSeetting(SnoopDoggSprite, "x" + item.Value, item.Key);
                     break;
             }
             idx++;

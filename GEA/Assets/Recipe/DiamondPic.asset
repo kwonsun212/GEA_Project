@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed96a84df4c617e48bef24464b089235, type: 3}
-  m_Name: Axe
+  m_Name: DiamondPic
   m_EditorClassIdentifier: 
   displayName: 
   input:
-  - type: 0
+  - type: 6
     count: 1
-  - type: 1
+  - type: 10
     count: 1
   outputs:
-  - type: 4
+  - type: 11
     count: 1
